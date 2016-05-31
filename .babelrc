@@ -1,0 +1,23 @@
+{
+  "presets": [
+    "es2015"
+  ],
+  "plugins": [
+    [
+      "fast-async",
+      {
+        "env": {
+          "augmentObject": false,
+          "dontMapStackTraces": false,
+          "asyncStackTrace": false,
+          "dontInstallRequireHook": false
+        },
+        "compiler": {
+          "promises": true,
+          "generators": false
+        },
+        "runtimePattern":"directive"
+      }
+    ]
+  ]
+}
