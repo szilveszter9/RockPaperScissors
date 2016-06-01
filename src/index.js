@@ -4,10 +4,10 @@
 global.amap = require('nodent/covers/map')(null,{Promise:require('nodent/lib/thenable')});
 
 import App from './app/App.js';
+import { render } from './app/lib/Render.js';
 
 async function startApp() {
-  let app = new App();
-  await app.render();
+  await render('app', [[App]]);
 }
 
 const loadedStates = ['complete', 'loaded', 'interactive'];

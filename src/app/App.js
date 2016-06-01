@@ -1,13 +1,18 @@
+import { render } from './lib/Render.js';
+import PubSub from './lib/PubSub.js';
+
+import Header from './Header.js';
+import Menu from './Menu.js';
+
 export default class App {
   constructor() {
-  }
-
-  getContainer() {
-    return document.getElementById('app');
+    global.pubSub = new PubSub();
   }
 
   async render() {
-    this.getContainer().innerHTML = 'testing';
-    return;
+    return render('main', [
+      [Header],
+      [Menu]
+    ]);
   }
 }
