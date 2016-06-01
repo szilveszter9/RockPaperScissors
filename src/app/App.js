@@ -10,6 +10,13 @@ export default class App {
   }
 
   async render() {
+    global.pubSub.subscribe('onClickPlayerVsComputer', async (...args) => {
+      await (async function(){setTimeout(function(){return $return()},2000)}());
+      console.log(args);
+      return;
+    });
+    global.pubSub.subscribe('onClickComputerVsComputer', async (...args) => console.log(args));
+
     return render('main', [
       [Header],
       [Menu]
