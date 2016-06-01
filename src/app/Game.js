@@ -50,9 +50,9 @@ export default class Game {
     let choice2 = choices[1].replace(/\..*/, '');
 
     let regex1stWinsStart = new RegExp('^' + choice1 + '.*');
-    let regex1stWinsEnd = new RegExp('.*' + choice2 + '$');
+    let regex1stWinsEnd = new RegExp('.*' + choice2 + '\\.\\w{3,4}$');
 
-    let firstWins = Object.assign([],this.rules).map(rule => rule.replace(/\..*/, '')).find(
+    let firstWins = this.rules.find(
       rule => rule.match(regex1stWinsStart) && rule.match(regex1stWinsEnd)
     );
 
@@ -60,9 +60,9 @@ export default class Game {
       return [this.players[0], firstWins];
     else {
       let regex2ndWinsStart = new RegExp('^' + choice2 + '.*');
-      let regex2ndWinsEnd = new RegExp('.*' + choice1 + '$');
+      let regex2ndWinsEnd = new RegExp('.*' + choice1 + '\\.\\w{3,4}$');
 
-      let secondWins = Object.assign([],this.rules).map(rule => rule.replace(/\..*/, '')).find(
+      let secondWins = this.rules.find(
         rule => rule.match(regex2ndWinsStart) && rule.match(regex2ndWinsEnd)
       );
 
