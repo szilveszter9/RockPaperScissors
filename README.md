@@ -7,8 +7,8 @@
 
 ## Install
 ```
-git clone git@bitbucket.org:szilveszter9/rock-paper-scissors.git
-cd rock-paper-scissors
+git clone git@github.com:szilveszter9/RockPaperScissors.git
+cd RockPaperScissors
 npm install
 ```
 
