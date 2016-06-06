@@ -1,0 +1,11 @@
+:root {
+  --textColor: #6666ff;
+  --htmlTextShadow: 0.1rem 0.1rem 0.1rem white;
+  --backgroundColor: #cfcfff;
+  --htmlBorderColor: #c7c7f7;
+  --htmlMinWidth: 45rem;
+  --htmlPadding: 1rem;
+  --winnerColor: #994624;
+  --winnerTextShadow: var(--htmlTextShadow);
+  --buttonBackgroundColor: #b8b8ff;
+}

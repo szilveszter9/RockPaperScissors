@@ -1,4 +1,7 @@
-import Games from './Games.js';
+import { NoOne } from './Players.js';
+import config from '../config.js';
+
+let gameConfig = config.default.game;
 
 export default class Game {
   constructor() {
@@ -19,17 +22,7 @@ export default class Game {
     Object.assign(this.rules, rules);
   }
 
-  setName(name) {
-    this.name = name;
-  }
-
-  //getName() {
-  //  return this.name;
-  //}
-
-  setGame(name) {
-    let game =Games.find(game => game.name === name);
-    this.setName(name);
+  setGame(game) {
     this.setCharacters(game.characters);
     this.setRules(game.rules);
   }
@@ -40,36 +33,41 @@ export default class Game {
         async player => await player.choose(Object.assign([], this.characters))
       )
     );
-    return choices;
+    return choices.map(arr => arr[1]).map(Number);
   }
 
-  async getResults(choices) {
-    if(choices[0] === choices[1])
-      return [0, 'YouChoseTheSameNoOneWinsPlayAgain.png'];
-    let choice1 = choices[0].replace(/\..*/, '');
-    let choice2 = choices[1].replace(/\..*/, '');
+  async getResults(choiceIndices) {
+    if(choiceIndices[0] === choiceIndices[1]){
+      return { winner: new NoOne(), rule: gameConfig.rules.sameFigureSelected };
+    }
+    let character1;
+    let character2;
+    try {
+      character1 = this.characters[choiceIndices[0]].name;
+      character2 = this.characters[choiceIndices[1]].name;
+    } catch(e) {
+      return { winner: new NoOne(), rule: gameConfig.rules.couldNotDecide };
+    }
 
-    let regex1stWinsStart = new RegExp('^' + choice1 + '.*');
-    let regex1stWinsEnd = new RegExp('.*' + choice2 + '\\.\\w{3,4}$');
-
-    let firstWins = this.rules.find(
-      rule => rule.match(regex1stWinsStart) && rule.match(regex1stWinsEnd)
-    );
-
-    if(firstWins)
-      return [this.players[0], firstWins];
+    let firstWins = isWinner(this.rules, character1, character2);
+    if(firstWins) {
+      return { winner: this.players[0], rule: firstWins.image };
+    }
     else {
-      let regex2ndWinsStart = new RegExp('^' + choice2 + '.*');
-      let regex2ndWinsEnd = new RegExp('.*' + choice1 + '\\.\\w{3,4}$');
+      let secondWins = isWinner(this.rules, character2, character1);
 
-      let secondWins = this.rules.find(
-        rule => rule.match(regex2ndWinsStart) && rule.match(regex2ndWinsEnd)
+      if(secondWins) {
+        return { winner: this.players[1], rule: secondWins.image };
+      }
+      else {
+        return { winner: NoOne, rule: gameConfig.rules.couldNotDecide };
+      }
+    }
+
+    function isWinner(rules, first, second) {
+      return rules.find(
+        rule => rule.prior === first && rule.after === second
       );
-
-      if(secondWins)
-        return [this.players[1], secondWins];
-      else
-        return [-1, 'CouldNotDecideWhoWinsGameMightBeIncomplete.png'];
     }
   }
 }

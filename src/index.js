@@ -1,19 +1,16 @@
 'use strict';
 'use runtime-nodent';
+require('es6-shim');
 
 global.amap = require('nodent/covers/map')(null,{Promise:require('nodent/lib/thenable')});
 
-import App from './app/App.js';
-import { render } from './app/lib/Render.js';
+import WebApp from './WebApp.js';
 
-async function startApp() {
-  await render('app', [[App]]);
-}
+let webApp = new WebApp();
+const loadedStates = new Set(['complete', 'loaded', 'interactive']);
 
-const loadedStates = ['complete', 'loaded', 'interactive'];
-
-if(loadedStates.includes(document.readyState) && document.body) {
-  startApp();
+if(loadedStates.has(document.readyState) && document.body) {
+  webApp.start();
 } else {
-  window.addEventListener('DOMContentLoaded', startApp, false);
+  window.addEventListener('DOMContentLoaded', webApp.start, false);
 }

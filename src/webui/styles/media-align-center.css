@@ -1,0 +1,7 @@
+html {
+  width: var(--htmlMinWidth);
+  margin: 0 calc((100% - var(--htmlMinWidth) - var(--htmlPadding) * 2) / 2);
+  border-width: 0 0.1rem;
+  border-color: var(--htmlBorderColor);
+  border-style: solid;
+}

@@ -1,0 +1,8 @@
+button {
+  width: 33.3%;
+}
+
+.Menu button,
+.ResultsMenu button {
+  width: 50%;
+}

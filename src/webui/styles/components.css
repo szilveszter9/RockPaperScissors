@@ -1,0 +1,57 @@
+#webApp {
+  position: relative;
+}
+
+.logo img {
+  max-height: 26rem;
+  max-width: 100%;
+  width: auto;
+}
+
+.Header {
+  clear: both;
+}
+
+.Menu {
+  clear: both;
+}
+
+.Menu button,
+.ResultsMenu button {
+  min-height: 4rem;
+}
+
+.ResultsMenu button {
+  max-width: 10rem;
+}
+
+.Game {
+  clear: both;
+}
+
+.Choose {
+  clear: both;
+}
+
+.Game .Results .Winner h2 {
+  padding-top: 0;
+}
+
+.Winner h2 {
+  color: var(--winnerColor);
+  text-shadow: var(--winnerTextShadow);
+}
+
+.AppliedRuleImage {
+  clear: both;
+}
+
+.AppliedRuleImage img {
+  max-width: 100%;
+  max-height: 20rem;
+  width: auto;
+}
+
+.AppliedRuleText {
+  clear: both;
+}

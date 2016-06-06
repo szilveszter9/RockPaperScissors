@@ -1,0 +1,54 @@
+html {
+  color: var(--textColor);
+  background-color: var(--backgroundColor);
+  text-shadow: var(--htmlTextShadow);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  height: calc(100% - var(--htmlPadding) * 2);
+  padding: var(--htmlPadding);
+  text-align: center;
+  user-select: none;
+  overflow-x: auto;
+  overflow-y: scroll;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+body img {
+  max-width: 100%;
+  width: auto;
+}
+
+button {
+  cursor: pointer;
+  background-color: var(--buttonBackgroundColor);
+}
+
+button:focus,
+button:hover {
+  border: 0.2rem solid var(--winnerColor);
+}
+
+button img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0;
+  padding: 0 0 1rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin: 0;
+  padding: 1rem 0;
+}
+
+h1,
+h2 {
+  clear: both;
+}

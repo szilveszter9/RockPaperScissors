@@ -1,0 +1,13 @@
+button {
+  width: 100%;
+}
+
+button img {
+  max-height: 10rem;
+  margin-top: 0.2rem;
+}
+
+.Menu button,
+.ResultsMenu button {
+  width: 50%;
+}
