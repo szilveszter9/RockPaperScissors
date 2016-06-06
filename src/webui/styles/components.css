@@ -2,18 +2,23 @@
   position: relative;
 }
 
+#Results {
+  width: 100%;
+}
+
+.main {
+  position: relative;
+}
+
 .logo img {
   max-height: 26rem;
   max-width: 100%;
   width: auto;
 }
 
-.Header {
-  clear: both;
-}
-
 .Menu {
-  clear: both;
+  position: absolute;
+  top: 3.6rem;
 }
 
 .Menu button,
@@ -26,11 +31,14 @@
 }
 
 .Game {
-  clear: both;
+  position: absolute;
+  top: 3.6rem;
 }
 
-.Choose {
-  clear: both;
+.Results {
+  width: 100%;
+  position: absolute;
+  top: 3.6rem;
 }
 
 .Game .Results .Winner h2 {
