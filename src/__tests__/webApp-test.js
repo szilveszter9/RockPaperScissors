@@ -1,6 +1,7 @@
 'use runtime-nodent';
 jest.disableAutomock();
 global.amap = require('nodent/covers/map')(null,{Promise:require('nodent/lib/thenable')});
+window.setTimeout = process.nextTick;
 
 import WebApp from '../WebApp.js';
 import { Player, Computer } from '../app/Players.js';

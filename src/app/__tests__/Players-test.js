@@ -5,6 +5,8 @@ global.amap = require('nodent/covers/map')(null,{Promise:require('nodent/lib/the
 import PubSub from '../lib/PubSub.js';
 import { Player, Computer, NoOne } from '../Players.js';
 
+window.setTimeout = process.nextTick;
+
 window.pubSub = new PubSub();
 
 describe('Player', () => {
