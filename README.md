@@ -20,6 +20,13 @@ npm run bundle:styles
 npm run bundle:static
 ```
 
+## Run
+* Start
+```
+npm start
+```
+* Open http://127.0.0.1:8080 in your browser
+
 ## Test
 * This script is watching the dist/ folder but includes from the src/ folder
 
