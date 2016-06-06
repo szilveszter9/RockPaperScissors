@@ -36,7 +36,8 @@ npm test
 ```
 ## Test coverage
 * Npm test will generate the report in `coverage/lcov-report/index.html`
-* Side note: The current process has some issues with the `branches` column with ES6, other columns are fine
+* Caveat: The current process has some issues with the `branches` column with ES6, other columns are fine
+* http://szilveszter9.github.io/coverage/ (please ignore the `branches` column)
 
 ## To be improved
 * Players' symbolic images to the sides on the rule's image
