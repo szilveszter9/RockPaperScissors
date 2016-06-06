@@ -4,6 +4,8 @@
 
 #Results {
   width: 100%;
+  position: absolute;
+  top: 0;
 }
 
 .main {
@@ -38,7 +40,6 @@
 .Results {
   width: 100%;
   position: absolute;
-  top: 3.6rem;
 }
 
 .Game .Results .Winner h2 {

@@ -30,6 +30,5 @@
   width: 100%;
   opacity: 1;
   visibility: visible;
-  top: 3.6rem;
   transition: opacity 0.5s ease-in, height 0.5s ease-in;
 }
