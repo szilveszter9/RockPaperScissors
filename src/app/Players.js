@@ -50,6 +50,7 @@ export class Computer extends BasePlayer {
     await global.pubSub.publish('beforeChooseCharacter', {
       playerType: this.getType()
     });
+    await (async function(){setTimeout(() => $return(), 500)}());
     return [null, randomIndex];
   }
 }
